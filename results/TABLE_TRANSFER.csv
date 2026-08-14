@@ -1,0 +1,5 @@
+target,best_foreign_fit,foreign_score,in_domain_score,delta,rel_delta_pct
+arguana,quora,0.360,0.366,-0.006,-1.7
+nfcorpus,scifact,0.188,0.216,-0.028,-12.9
+quora,scifact,0.338,0.337,+0.001,+0.3
+scifact,nfcorpus,0.377,0.460,-0.083,-18.0

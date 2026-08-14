@@ -1,0 +1,8 @@
+encoder,representation,dim,clean_ndcg10,noisy_ndcg10,pareto_optimal_dim_vs_noisy
+MiniLM,Full,384,0.598,0.320,No
+MiniLM,NoiseProj-CF,128,0.574,0.329,Yes
+MiniLM,NoiseProj-CF,256,0.594,0.350,Yes
+Nomic,Full,768,0.603,0.356,No
+Nomic,Native MRL,128,0.555,0.275,No
+Nomic,NoiseProj-CF,128,0.549,0.333,Yes
+Nomic,NoiseProj-CF,256,0.590,0.378,Yes

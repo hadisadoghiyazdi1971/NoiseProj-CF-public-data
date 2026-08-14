@@ -1,0 +1,4 @@
+representation,clean_ndcg10,observed_ocr_ndcg10
+Full,0.603,0.181
+PCA-128,0.537,0.117
+NoiseProj-CF-128,0.549,0.152

@@ -1,0 +1,5 @@
+panel,encoder,representation,dim,clean_ndcg10,noisy_ndcg10,source
+four_dataset,Nomic,Native MRL,128,0.555,0.275,tables/dimension_key.tex (Table: dimension trade-offs, tab:dimension)
+four_dataset,Nomic,NoiseProj-CF,128,0.549,0.333,tables/dimension_key.tex (Table: dimension trade-offs, tab:dimension)
+six_dataset,Nomic,Native MRL,128,0.450,0.224,manuscript.tex Sec. 6.6 prose (dimension-efficiency paragraph)
+six_dataset,Nomic,NoiseProj-CF,128,0.447,0.274,manuscript.tex Sec. 6.6 prose (dimension-efficiency paragraph)

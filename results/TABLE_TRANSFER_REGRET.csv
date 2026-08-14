@@ -1,0 +1,5 @@
+target,best_foreign_fit,delta,rel_delta_pct,regret_ndcg10,regret_rel_pct
+arguana,quora,-0.006,-1.7,0.006,1.7
+nfcorpus,scifact,-0.028,-12.9,0.028,12.9
+quora,scifact,+0.001,+0.3,0.000,0.0
+scifact,nfcorpus,-0.083,-18.0,0.083,18.0

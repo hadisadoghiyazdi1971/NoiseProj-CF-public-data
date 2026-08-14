@@ -1,0 +1,8 @@
+encoder,representation,dim,clean_ndcg10,noisy_ndcg10,pct_of_full_clean_ndcg10
+MiniLM,Full,384,0.598,0.320,100.0
+MiniLM,NoiseProj-CF,128,0.574,0.329,96.0
+MiniLM,NoiseProj-CF,256,0.594,0.350,99.3
+Nomic,Full,768,0.603,0.356,100.0
+Nomic,Native MRL,128,0.555,0.275,92.0
+Nomic,NoiseProj-CF,128,0.549,0.333,91.0
+Nomic,NoiseProj-CF,256,0.590,0.378,97.8

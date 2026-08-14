@@ -1,0 +1,8 @@
+method,clean_ndcg10,mean_noisy_ndcg10
+Full-384,0.598,0.320
+NoiseProj-CF-128,0.574,0.329
+trimmed_robust_pca_128,0.577,0.290
+factor_analysis_128,0.571,0.282
+whitening_pca_128,0.570,0.282
+ica_128,0.570,0.282
+sparse_rp_128,0.542,0.226

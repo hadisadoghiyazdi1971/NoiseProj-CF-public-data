@@ -1,0 +1,5 @@
+corruption,full_ndcg10,pca128_ndcg10,noiseprojcf128_ndcg10
+Random-char typo,0.277,0.213,0.254
+NLPaug OCR,0.359,0.280,0.334
+Keyboard typo,0.263,0.200,0.244
+Spelling error,0.441,0.365,0.401

@@ -1,0 +1,11 @@
+corruption_source,mode,severity,dataset,cer,token_error_rate,unchanged_rate,char_length_ratio,empty_outputs,empty_rate_pct
+synthetic_text,ocr_error,0.05,,0.029,0.161,0.232,1.002,,
+synthetic_text,ocr_error,0.15,,0.089,0.398,0.055,1.007,,
+synthetic_text,ocr_error,0.25,,0.149,0.560,0.022,1.011,,
+synthetic_text,typo_char,0.05,,0.059,0.300,0.116,1.000,,
+synthetic_text,typo_char,0.15,,0.168,0.657,0.026,1.000,,
+synthetic_text,typo_char,0.25,,0.268,0.835,0.009,1.001,,
+observed_ocr_render_tesseract,render_degrade_ocr,,scifact,0.291,0.765,,,0,0.000
+observed_ocr_render_tesseract,render_degrade_ocr,,quora,0.260,0.682,,,16,0.160
+observed_ocr_render_tesseract,render_degrade_ocr,,fiqa,0.256,0.693,,,0,0.000
+observed_ocr_render_tesseract,render_degrade_ocr,,arguana,0.307,0.729,,,0,0.000

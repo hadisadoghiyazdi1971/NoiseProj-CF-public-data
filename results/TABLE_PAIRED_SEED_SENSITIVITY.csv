@@ -1,0 +1,5 @@
+dataset,num_calibration_seeds,mean_principal_angle_deg,clean_ndcg10,clean_ndcg10_sd,fit_time_s
+arguana,5,16.8,0.436,0.0020,1.97
+fiqa,5,18.9,0.311,0.0017,1.62
+quora,5,21.4,0.773,0.0013,1.50
+scifact,5,21.7,0.675,0.0039,1.70

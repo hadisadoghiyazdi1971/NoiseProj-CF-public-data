@@ -1,0 +1,6 @@
+reference,wins,losses,win_rate_pct,mean_delta_ndcg10
+Full,35,73,32.4,-0.014
+PCA-128,97,11,89.8,+0.039
+SVD-128,91,17,84.3,+0.034
+GaussianRP-128,108,0,100.0,+0.083
+DAE-128,108,0,100.0,+0.049
