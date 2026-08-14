@@ -2,6 +2,7 @@
 
 Public results/data companion to:
 
+
 > **NoiseProj-CF: Noise-Adjusted Low-Rank Indexing for Compact and Corruption-Robust Dense Retrieval**
 > Amirreza Taghaddosi, Hadi Sadoghi Yazdi
 > Department of Computer Engineering, Faculty of Engineering, Ferdowsi University of Mashhad, Mashhad, Iran
