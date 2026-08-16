@@ -1,84 +1,105 @@
 # Results index — NoiseProj-CF
 
-Every CSV in [`../results/`](../results/) is a direct transcription of a table that ships in the
-manuscript or supplementary LaTeX source (frozen scientific protocol `4.0.2-final`), or an
-explicitly-labeled re-derivation/subset of one of those tables. No experimental value in this
-release was invented, estimated, or back-filled; where a requested table has no corresponding
-source data, that is stated below and the file is omitted rather than filled with placeholder
-numbers.
+The public CSVs in [`../results/`](../results/) are generated from the validated final analysis
+record for scientific protocol `4.0.2-final`, with concise manuscript-facing views used where a
+smaller table is easier to interpret.
 
-All effectiveness figures are NDCG@10 unless a column name says otherwise. "Noisy" always means
-the equal-dataset macro average over the frozen evaluation-noise grid (typo-char and OCR-like
-corruption at severities 0.05/0.15/0.25, each averaged over five evaluation seeds:
-10011/10023/10037/10042/10053), computed with no relevance labels used at fit time.
+The authoritative numerical direction is:
 
-## Direct transcriptions (one source table each)
+```text
+validated final analysis -> public CSV -> rounded manuscript display
+```
 
-| CSV | Source (LaTeX table) | Notes |
-|---|---|---|
-| `TABLE_MAIN_clean_vs_mean_noisy.csv` | `tables/main_effectiveness.tex` (`tab:main`) | Reshaped from wide (per-encoder columns) to long/tidy format. |
-| `TABLE_SECONDARY_METRICS.csv` | `tables/supp_secondary.tex` (`tab:supp-secondary`) | Recall@100, MRR@10, MAP@100. |
-| `TABLE_DATASET_LEVEL.csv` | `tables/datasets.tex` (`tab:datasets`) | Corpus sizes and qrel-free fit-document caps; not a retrieval-effectiveness table. |
-| `TABLE_RANKING_STABILITY_MACRO.csv` | `tables/supp_ranking.tex` (`tab:suprank`) | Averaged across the six main noisy conditions. |
-| `TABLE_CLASSICAL_BASELINES.csv` | `tables/supp_classical.tex` (`tab:supclassical`) | Four-dataset MiniLM subset only, as in the source. |
-| `TABLE_OBSERVED_OCR.csv` | `tables/ocr.tex` (`tab:ocr`) | Effectiveness under the observed render→degrade→Tesseract pipeline. |
-| `TABLE_UNSEEN_GENERALIZATION.csv` | `tables/unseen.tex` (`tab:unseen`) | Four NLPaug generators never used to calibrate the method. |
-| `TABLE_SYSTEM_FULL.csv` | `tables/supp_system.tex` (`tab:supp-system`) | Complete Quora/Nomic Flat/PQ/OPQ benchmark. |
-| `TABLE_SYSTEM_PARETO.csv` | `tables/system_flat.tex` (`tab:system`) | Flat-index-only subset used for the main-text storage/throughput/quality trade-off figure. |
-| `TABLE_CROSSED_QUERY_SEED_BOOTSTRAP.csv` | `tables/crossed_query_seed_stats.tex` (`tab:crossedstats`) | Confirmatory 10,000-replicate bootstrap, Holm-corrected over 15 comparisons. |
-| `TABLE_PAIRED_SEED_SENSITIVITY.csv` | `tables/supp_fitseed.tex` (`tab:supp-fitseed`) | This is **calibration-seed** (fit-seed) sensitivity — the closest available "seed sensitivity" data. It is not a per-evaluation-noise-seed breakdown; no such table is shipped. |
+The public release does not reconstruct values from rounded PDF tables. This avoids small apparent
+percentage discrepancies caused by rounding.
 
-## Merged tables (same measurement, two source tables)
+All primary effectiveness values are NDCG@10 unless a column says otherwise.
 
-- **`TABLE_REALIZED_CORRUPTION.csv`** combines `tables/supp_realized.tex` (synthetic typo/OCR-like
-  corruption statistics, averaged across datasets/encoders) and `tables/supp_ocrstats.tex`
-  (observed render→degrade→Tesseract statistics, per dataset). A `corruption_source` column
-  distinguishes the two row sets; columns that don't apply to a given source are left blank.
+## Main effectiveness and dataset tables
 
-## Derived / re-expressed tables (same underlying numbers, no new measurements)
+| CSV | Provenance / meaning |
+|---|---|
+| `TABLE_MAIN_clean_vs_mean_noisy.csv` | Full-precision clean and equal-dataset mean-noisy NDCG@10 from `01_MAIN/TABLE_MAIN_clean_vs_mean_noisy.csv`, presented as a concise long table. |
+| `TABLE_SECONDARY_METRICS.csv` | Full-precision Recall@100, MRR@10, and MAP@100 clean/noisy summaries from `01_MAIN/TABLE_SECONDARY_METRICS.csv`. |
+| `TABLE_DATASET_METADATA.csv` | Dataset/document/query/fit-document metadata corresponding to the submitted manuscript dataset table. |
+| `TABLE_DATASET_LEVEL.csv` | Full per-dataset, per-encoder, per-method clean/noisy effectiveness from `01_MAIN/TABLE_DATASET_LEVEL.csv`. |
 
-- **`TABLE_NOISEPROJ_DOMINANCE.csv`** is the full pairwise dominance table from
-  `tables/dominance.tex` (`tab:dominance`), including the `Full` reference row.
-- **`TABLE_COMPACT_WIN_COUNTS.csv`** is the same table restricted to the four compact baselines
-  (PCA/SVD/GaussianRP/DAE), i.e. dominance over compact competitors only, excluding `Full`.
-- **`TABLE_DIMENSION_PARETO.csv`** adds a `pareto_optimal_dim_vs_noisy` flag to
-  `TABLE_DIMENSION_EFFICIENCY.csv` (source: `tables/dimension_key.tex`, `tab:dimension`). The flag
-  marks points not dominated on the two-objective frontier (minimize `dim`, maximize
-  `noisy_ndcg10`) **within each encoder**. It intentionally ignores clean NDCG, so a point being
-  "Pareto-optimal" here is not a claim that it is best overall — see `TABLE_DIMENSION_EFFICIENCY.csv`
-  for the clean-NDCG trade-off the frontier omits.
-- **`TABLE_DIMENSION_EFFICIENCY.csv`** additionally reports `pct_of_full_clean_ndgc10` computed as
-  `clean_ndcg10 / (Full clean_ndcg10 for the same encoder)`. Values were computed from the rounded
-  numbers in `tables/dimension_key.tex`; the manuscript's prose cites 99.3% (MiniLM-256) and ~97.7%
-  (Nomic-256) from its own unrounded internal source, so the Nomic figure here (97.8%) differs by
-  0.1 point due to rounding — both are transcribed/derived, not independently fabricated.
-- **`TABLE_TRANSFER_REGRET.csv`** re-expresses `tables/supp_transfer.tex` (`tab:supp-transfer`) as
-  a one-sided "regret" (`max(0, -delta)`), i.e. the noisy-NDCG cost of using the best foreign-fitted
-  projection instead of in-domain calibration. The Quora row has zero regret because foreign
-  transfer very slightly *helped* there.
-- **`TABLE_NATIVE_MRL.csv`** combines one row pair from `tables/dimension_key.tex` (four-dataset
-  ArguAna/FiQA/SciFact/Quora panel) with a second row pair whose numbers (0.224→0.274 noisy NDCG,
-  0.450 vs 0.447 clean NDCG) appear only in `manuscript.tex` prose (Sec. "RQ2: dimension efficiency
-  and native Matryoshka"), not in any shipped LaTeX table. The `source` column marks this explicitly.
+## Robustness and heterogeneity
 
-## Not included in this release
+| CSV | Provenance / meaning |
+|---|---|
+| `TABLE_NOISEPROJ_DOMINANCE.csv` | Full 108-cell pairwise NoiseProj-CF dominance statistics from `02_ROBUSTNESS/TABLE_NOISEPROJ_DOMINANCE.csv`. |
+| `TABLE_COMPACT_WIN_COUNTS.csv` | Which compact method wins each 108-cell comparison, aggregated from `02_ROBUSTNESS/TABLE_COMPACT_WIN_COUNTS.csv`. This is distinct from pairwise dominance. |
+| `TABLE_LODO_DELTAS.csv` | Leave-one-dataset-out sensitivity from `03_HETEROGENEITY/TABLE_LODO_DELTAS.csv`. |
+| `TABLE_RANKING_STABILITY_MACRO.csv` | Six-condition macro average derived from the 108-row final-analysis ranking-stability table in `04_STABILITY/TABLE_RANKING_STABILITY_MACRO.csv`. |
+| `TABLE_REALIZED_CORRUPTION.csv` | Full-precision concise view combining synthetic corruption statistics from `04_STABILITY/TABLE_REALIZED_CORRUPTION.csv` with observed OCR statistics from `06_GENERALIZATION/TABLE_OBSERVED_OCR_NOISE_STATS.csv`. |
 
-- **`TABLE_LODO_DELTAS.csv` (leave-one-dataset-out sensitivity) — not available.** The manuscript
-  refers to a LODO sensitivity check (`manuscript.tex`, Sec. 5.5: "Leave-one-dataset-out sensitivity
-  in the supplement is a partial check") and again in the Sec. 8 "Metrics and statistical inference"
-  paragraph, but no LODO numbers appear in any `.tex` table shipped with this submission package.
-  Rather than reconstruct plausible-looking numbers, this table is omitted. It may exist in the
-  authors' full analysis archive (see `../DATA_AVAILABILITY.md`).
-- Deployment-coordinate ablation (`tables/supp_deployment.tex`), the Quora fit-size sweep
-  (`tables/supp_fitsize.tex`), and the full 180-row per-query paired bootstrap
-  (`tables/supp_queryboot.tex` ships only a 42-row Full/PCA subset) were not requested in this
-  release's file list and are not included as separate CSVs. They exist in the LaTeX source and can
-  be added on request.
+## Compression and dimension studies
+
+| CSV | Provenance / meaning |
+|---|---|
+| `TABLE_CLASSICAL_BASELINES.csv` | Full-precision MiniLM four-dataset comparison combining the Full/NoiseProj rows from the dimension analysis with the additional classical baselines in `05_COMPRESSION/TABLE_CLASSICAL_BASELINES.csv`. |
+| `TABLE_DIMENSION_EFFICIENCY.csv` | Direct final-analysis dimension table from `05_COMPRESSION/TABLE_DIMENSION_EFFICIENCY.csv`, including clean/noisy retention and storage reduction. |
+| `TABLE_DIMENSION_PARETO.csv` | Direct final-analysis dimension table with the final-analysis Pareto flag from `05_COMPRESSION/TABLE_DIMENSION_PARETO.csv`. |
+| `TABLE_NATIVE_MRL.csv` | Full-precision Nomic 128-D Native-MRL versus NoiseProj-CF comparison for both the four-dataset dimension panel and the six-dataset main panel. The six-dataset clean values are Native MRL `0.447143...` and NoiseProj-CF `0.449949...`. |
+
+## Generalization and diagnostics
+
+| CSV | Provenance / meaning |
+|---|---|
+| `TABLE_OBSERVED_OCR.csv` | Full-precision clean versus observed render/degrade/Tesseract OCR NDCG@10 for Full, PCA-128, and NoiseProj-CF-128, derived from `06_GENERALIZATION/TABLE_OBSERVED_OCR.csv`. |
+| `TABLE_UNSEEN_GENERALIZATION.csv` | Full-precision four-generator unseen-corruption comparison derived from `06_GENERALIZATION/TABLE_UNSEEN_GENERALIZATION.csv`. |
+| `TABLE_DOCUMENT_QUERY_NOISE_GEOMETRY.csv` | Direct diagnostic from `07_DIAGNOSTICS/TABLE_DOCUMENT_QUERY_NOISE_GEOMETRY.csv`; it measures document/query residual-covariance differences and should not be interpreted as evidence that the two nuisance operators are equal. |
+| `TABLE_FIT_SEED_STABILITY.csv` | Direct calibration-seed stability summary from `07_DIAGNOSTICS/TABLE_FIT_SEED_STABILITY.csv`. |
+| `TABLE_PAIRED_SEED_SENSITIVITY.csv` | Direct paired evaluation-seed sensitivity table from `10_STATISTICS/TABLE_PAIRED_SEED_SENSITIVITY.csv`. This is different from calibration fit-seed stability. |
+
+## Transfer and system results
+
+| CSV | Provenance / meaning |
+|---|---|
+| `TABLE_TRANSFER.csv` | Full-precision best-foreign-source noisy-transfer summary from `08_TRANSFER/TABLE_BEST_FOREIGN_SOURCE.csv`. |
+| `TABLE_TRANSFER_REGRET.csv` | Derived non-negative regret view of `TABLE_TRANSFER.csv`: `max(0, -delta)`. |
+| `TABLE_SYSTEM_FULL.csv` | Full-precision concise view of the 12 Quora/Nomic Flat/PQ/OPQ measurements in `09_SYSTEM/TABLE_SYSTEM_FULL.csv`. |
+| `TABLE_SYSTEM_FLAT.csv` | Flat-index-only comparison used for the main storage/throughput/quality discussion. |
+
+## Statistical inference
+
+| CSV | Provenance / meaning |
+|---|---|
+| `TABLE_CROSSED_QUERY_SEED_BOOTSTRAP.csv` | Direct 10,000-replicate equal-dataset crossed query-seed bootstrap output from `10_STATISTICS/TABLE_CROSSED_QUERY_SEED_BOOTSTRAP.csv`, including raw and Holm-adjusted bootstrap p-values. |
+| `TABLE_PAIRED_SEED_SENSITIVITY.csv` | Five paired evaluation-seed sensitivity analysis. It is supplementary to, not a replacement for, the crossed query-seed bootstrap. |
+
+## Important statistical interpretation
+
+The confirmatory crossed bootstrap resamples queries and evaluation-noise seeds as crossed factors
+within each dataset and combines the six datasets with equal weight. The six datasets themselves
+are not resampled. Therefore its intervals are conditional on the selected benchmark panel.
+
+`TABLE_LODO_DELTAS.csv` is a dataset-composition sensitivity check. It should not be described as
+population-level inference over a random sample of retrieval datasets.
+
+## Document/query nuisance geometry
+
+`TABLE_DOCUMENT_QUERY_NOISE_GEOMETRY.csv` shows that document-side and query-side corruption
+residual geometry is measurably different. For the Nomic diagnostic at severity 0.15, the mean
+principal angles are about 27.6 degrees for typo corruption and 28.9 degrees for OCR-like
+corruption, with normalized covariance distances about 0.664 and 0.691, respectively.
+
+Accordingly, the public evidence should not be summarized as showing document/query covariance
+equivalence. The operational question is whether the document-calibrated map suppresses query-side
+perturbations sufficiently for robust retrieval.
 
 ## Protocol reference
 
-Frozen protocol: `4.0.2-final`. Encoders: all-MiniLM-L6-v2 (384-D), E5-base-v2 (768-D),
-nomic-embed-text-v1.5 (768-D). Datasets: ArguAna, FiQA, NFCorpus, SciFact, SciDocs, Quora (BEIR).
-Calibration is document-only and qrel-free; evaluation queries/qrels are never used to fit the
-projection. Full protocol details are in `tables/supp_protocol.tex` and `tables/supp_encoders.tex`
-in the manuscript source.
+Frozen protocol: `4.0.2-final`.
+
+Pinned model revisions:
+
+- all-MiniLM-L6-v2: `1110a243fdf4706b3f48f1d95db1a4f5529b4d41`
+- E5-base-v2: `f52bf8ec8c7124536f0efb74aca902b2995e5bcd`
+- nomic-embed-text-v1.5: `e9b6763023c676ca8431644204f50c2b100d9aab`
+
+Datasets: ArguAna, FiQA, NFCorpus, SciFact, SciDocs, and Quora.
+
+Calibration is document-only and qrel-free. Evaluation queries and qrels are not used to fit the
+projection.

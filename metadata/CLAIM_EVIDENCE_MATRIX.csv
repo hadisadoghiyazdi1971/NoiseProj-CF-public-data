@@ -1,17 +1,17 @@
 claim_id,claim_summary,manuscript_location,evidence_tables,status
-C1,NoiseProj-CF-128 has the highest mean noisy NDCG@10 among evaluated compact methods for every encoder (MiniLM/E5/Nomic),Abstract; Sec. 6.1,TABLE_MAIN_clean_vs_mean_noisy.csv; TABLE_NOISEPROJ_DOMINANCE.csv,supported
-C2,Relative gains of 10.8% (MiniLM) / 15.7% (E5) / 16.3% (Nomic) over the strongest generic 128-D comparator,Abstract; Sec. 6.1,TABLE_MAIN_clean_vs_mean_noisy.csv,supported (computed from rounded table values; manuscript flags a rounded-vs-unrounded discrepancy, see README_RESULTS.md)
-C3,Nomic-256 exceeds Full-768 mean noisy NDCG@10 by 6.3% while using one third of the coordinates,Abstract; Sec. 6.4,TABLE_DIMENSION_EFFICIENCY.csv; TABLE_DIMENSION_PARETO.csv,supported
-C4,Compact-method advantage persists across four unseen corruption generators,Abstract; Sec. 6.5,TABLE_UNSEEN_GENERALIZATION.csv,supported
-C5,Compact-method advantage persists under an observed render-degrade-OCR pipeline (though Full remains strongest),Abstract; Sec. 6.5,TABLE_OBSERVED_OCR.csv; TABLE_REALIZED_CORRUPTION.csv,supported
-C6,"Quora/Nomic 128-D Flat index reduces vector/index storage by 83.3% and increases measured throughput by 4.7x vs Full-768",Abstract; Sec. 6.7,TABLE_SYSTEM_PARETO.csv; TABLE_SYSTEM_FULL.csv,supported
-C7,Equal-dataset crossed query-seed bootstrap confirms gains over most compact baselines; Full remains stronger in several clean/low-noise settings,Abstract; Sec. 6.2,TABLE_CROSSED_QUERY_SEED_BOOTSTRAP.csv; TABLE_MAIN_clean_vs_mean_noisy.csv,supported
-C8,"Cell-level dominance over 108 dataset-encoder-corruption-severity cells: 97/108 vs PCA, 91/108 vs SVD, 108/108 vs DAE and GaussianRP, 35/108 vs Full",Sec. 6.1,TABLE_NOISEPROJ_DOMINANCE.csv; TABLE_COMPACT_WIN_COUNTS.csv,supported
-C9,Ranking-stability diagnostics improve relative to PCA (Top-100 overlap; lost-hit@100; first-relevant-rank shift),Sec. 6.2,TABLE_RANKING_STABILITY_MACRO.csv,supported
-C10,Native Nomic MRL-128 is clean-competitive but less robust than NoiseProj-CF-128 at 128 dimensions,Sec. 6.4,TABLE_NATIVE_MRL.csv; TABLE_DIMENSION_EFFICIENCY.csv,supported
-C11,"Cross-corpus transfer is partial: best foreign source is 1.7% below in-domain on ArguAna, +0.3% above on Quora, 12.9% below on NFCorpus, 18.0% below on SciFact",Sec. 6.6,TABLE_TRANSFER.csv; TABLE_TRANSFER_REGRET.csv,supported
-C12,"Calibration is stable across five fit seeds (principal angle ~17-22 deg) with small clean-NDCG variation (SD < 0.004)",Sec. 5.6; Sec. 6.6,TABLE_PAIRED_SEED_SENSITIVITY.csv,supported
-C13,Secondary metrics (Recall@100/MRR@10/MAP@100) reproduce the primary NDCG@10 pattern,Supplementary Sec. 2,TABLE_SECONDARY_METRICS.csv,supported
-C14,Additional classical/whitening baselines cluster tightly and do not match NoiseProj-CF-128's noisy score,Sec. 6.3 (ablation),TABLE_CLASSICAL_BASELINES.csv,supported
-C15,Leave-one-dataset-out (LODO) sensitivity is mentioned as a partial robustness check on the six-dataset panel,Sec. 5.5 (statistical uncertainty discussion),none,NOT AVAILABLE — no LODO table is shipped in the manuscript/supplementary LaTeX sources; see DATA_AVAILABILITY.md
-C16,Dataset and calibration population sizes (documents/queries/fit docs) per BEIR task,Sec. 5.2,TABLE_DATASET_LEVEL.csv,supported
+C1,NoiseProj-CF-128 has the highest mean noisy NDCG@10 among evaluated compact methods for every encoder (MiniLM/E5/Nomic),Abstract; Sec. 4.2 (RQ1–RQ2),TABLE_MAIN_clean_vs_mean_noisy.csv; TABLE_NOISEPROJ_DOMINANCE.csv,supported
+C2,Relative gains of 10.8% (MiniLM) / 15.7% (E5) / 16.3% (Nomic) over the strongest generic 128-D comparator,Abstract; Sec. 4.2 (RQ1–RQ2),TABLE_MAIN_clean_vs_mean_noisy.csv,supported from full-precision values
+C3,Nomic-256 exceeds Full-768 mean noisy NDCG@10 by 6.3% while using one third of the coordinates,Abstract; Sec. 4.2 (RQ2: dimension efficiency and native Matryoshka),TABLE_DIMENSION_EFFICIENCY.csv; TABLE_DIMENSION_PARETO.csv,supported
+C4,Compact-method advantage persists across four unseen corruption generators,Abstract; Sec. 4.2 (RQ3),TABLE_UNSEEN_GENERALIZATION.csv,supported
+C5,"Compact-method advantage persists under an observed render-degrade-OCR pipeline, although Full remains strongest",Abstract; Sec. 4.2 (RQ3),TABLE_OBSERVED_OCR.csv; TABLE_REALIZED_CORRUPTION.csv,supported
+C6,Quora/Nomic 128-D Flat index reduces vector/index storage by 83.3% and increases measured throughput by about 4.7x versus Full-768,Abstract; Sec. 4.2 (RQ6),TABLE_SYSTEM_FLAT.csv; TABLE_SYSTEM_FULL.csv,supported
+C7,"Equal-dataset crossed query-seed bootstrap supports gains over most tested compact baselines, while Full retains advantages in several settings",Sec. 4.1 (Metrics and statistical inference); Sec. 4.2 (Statistical uncertainty and encoder heterogeneity); Sec. 4.4,TABLE_CROSSED_QUERY_SEED_BOOTSTRAP.csv; TABLE_MAIN_clean_vs_mean_noisy.csv,supported with encoder-specific caveats
+C8,"Cell-level dominance over 108 dataset-encoder-corruption-severity cells: 97/108 vs PCA, 91/108 vs SVD, 108/108 vs DAE and GaussianRP, 35/108 vs Full",Sec. 4.2 (RQ1–RQ2),TABLE_NOISEPROJ_DOMINANCE.csv,supported
+C9,"Ranking-stability diagnostics improve relative to PCA on Top-100 overlap, lost-hit@100, and first-relevant-rank shift",Sec. 4.2 (Robustness increases in value as noise strengthens),TABLE_RANKING_STABILITY_MACRO.csv,supported
+C10,Native Nomic MRL-128 is clean-competitive but less robust than NoiseProj-CF-128 at 128 dimensions,Sec. 4.2 (RQ2: dimension efficiency and native Matryoshka),TABLE_NATIVE_MRL.csv; TABLE_DIMENSION_EFFICIENCY.csv,supported
+C11,"Cross-corpus transfer is partial: best foreign source is about 1.7% below in-domain on ArguAna, 0.3% above on Quora, 12.9% below on NFCorpus, and 18.0% below on SciFact",Sec. 4.2 (RQ4–RQ5),TABLE_TRANSFER.csv; TABLE_TRANSFER_REGRET.csv,supported
+C12,Calibration is stable in effectiveness across five fit seeds despite measurable subspace variation,Sec. 4.2 (RQ4–RQ5),TABLE_FIT_SEED_STABILITY.csv,supported
+C13,Secondary metrics (Recall@100/MRR@10/MAP@100) reproduce the main compact-robustness pattern,Supplementary results,TABLE_SECONDARY_METRICS.csv,supported
+C14,Additional classical/whitening baselines do not match NoiseProj-CF-128 on the noisy MiniLM four-dataset comparison,Sec. 4.1 (baseline protocol); supplementary classical-baseline table,TABLE_CLASSICAL_BASELINES.csv,supported
+C15,Leave-one-dataset-out sensitivity is used as a benchmark-panel composition check,Sec. 4.1 (Metrics and statistical inference),TABLE_LODO_DELTAS.csv,supported
+C16,Dataset and calibration population sizes per BEIR task,Sec. 4.1 (Datasets and encoders),TABLE_DATASET_METADATA.csv,supported

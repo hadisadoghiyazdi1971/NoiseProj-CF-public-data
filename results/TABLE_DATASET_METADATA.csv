@@ -1,0 +1,7 @@
+dataset,documents,raw_queries,evaluated_queries,fit_docs,task_domain
+ArguAna,8674,1406,1401,8674,argument retrieval
+FiQA,57638,648,648,10000,financial QA
+NFCorpus,3633,323,323,3633,biomedical/nutrition
+SciFact,5183,300,300,5183,scientific evidence
+SciDocs,25657,1000,1000,10000,citation/document retrieval
+Quora,522931,10000,10000,10000,duplicate-question retrieval
