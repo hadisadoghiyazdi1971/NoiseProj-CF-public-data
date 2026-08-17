@@ -1,22 +1,19 @@
 cff-version: 1.2.0
 message: >-
-  The manuscript associated with this results package is currently submitted
-  to Data & Knowledge Engineering and has not yet been accepted or assigned a
-  DOI. Until publication, please cite this dataset directly (see below) or
-  contact the corresponding author for guidance. Update the
-  "preferred-citation" block with the DOI/volume/issue once the paper is
-  published.
+  The manuscript associated with this results package was submitted to
+  Data & Knowledge Engineering on 2026-08-14 and has not yet been accepted
+  or assigned a DOI. Until publication, please cite this dataset directly
+  or contact the corresponding author for guidance.
 type: dataset
 title: "NoiseProj-CF: Public Results and Evidence Data"
 abstract: >-
-  Generated result tables (CSV) supporting the manuscript "NoiseProj-CF:
+  Processed result tables supporting the manuscript "NoiseProj-CF:
   Noise-Adjusted Low-Rank Indexing for Compact and Corruption-Robust Dense
-  Retrieval". Covers six BEIR datasets and three frozen sentence-embedding
-  encoders under a qrel-free, document-calibrated, noise-adjusted low-rank
-  projection (frozen protocol 4.0.2-final), including main effectiveness,
-  secondary metrics, dimension efficiency, unseen/observed corruption
-  generalization, cross-corpus transfer, vector-index system trade-offs, and
-  bootstrap statistical inference.
+  Retrieval". The release covers six BEIR datasets and three frozen
+  sentence-embedding encoders under the qrel-free, document-calibrated
+  protocol 4.0.2-final, including effectiveness, compression, corruption
+  generalization, transfer, system trade-offs, sensitivity diagnostics,
+  and statistical inference.
 authors:
   - given-names: Amirreza
     family-names: Taghaddosi
@@ -35,8 +32,7 @@ keywords:
   - noise-adjusted principal components
 license: CC-BY-4.0
 date-released: "2026-08-14"
-repository-code: "TBD — fill in after this repository is pushed to GitHub"
-url: "TBD — fill in after this repository is pushed to GitHub"
+url: "https://github.com/hadisadoghiyazdi1971/NoiseProj-CF-public-data"
 preferred-citation:
   type: article
   title: "NoiseProj-CF: Noise-Adjusted Low-Rank Indexing for Compact and Corruption-Robust Dense Retrieval"
@@ -49,4 +45,4 @@ preferred-citation:
   journal: "Data & Knowledge Engineering"
   status: "submitted"
   year: 2026
-  notes: "Under peer review as of 2026-08-14. Replace status/year/doi/volume/issue/pages once published."
+  notes: "Submitted on 2026-08-14; not yet accepted or assigned a DOI."

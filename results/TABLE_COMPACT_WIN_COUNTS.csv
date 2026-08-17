@@ -1,5 +1,4 @@
-reference,wins,losses,win_rate_pct,mean_delta_ndcg10
-PCA-128,97,11,89.8,+0.039
-SVD-128,91,17,84.3,+0.034
-GaussianRP-128,108,0,100.0,+0.083
-DAE-128,108,0,100.0,+0.049
+method,wins,win_share_pct
+NoiseProj-CF-128,91,84.25925925925925
+PCA-128,3,2.7777777777777777
+SVD-128,14,12.962962962962964

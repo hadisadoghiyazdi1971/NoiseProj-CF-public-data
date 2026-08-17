@@ -1,5 +1,5 @@
 panel,encoder,representation,dim,clean_ndcg10,noisy_ndcg10,source
-four_dataset,Nomic,Native MRL,128,0.555,0.275,tables/dimension_key.tex (Table: dimension trade-offs, tab:dimension)
-four_dataset,Nomic,NoiseProj-CF,128,0.549,0.333,tables/dimension_key.tex (Table: dimension trade-offs, tab:dimension)
-six_dataset,Nomic,Native MRL,128,0.450,0.224,manuscript.tex Sec. 6.6 prose (dimension-efficiency paragraph)
-six_dataset,Nomic,NoiseProj-CF,128,0.447,0.274,manuscript.tex Sec. 6.6 prose (dimension-efficiency paragraph)
+four_dataset,Nomic,Native MRL,128,0.5551409885669323,0.2749863389487461,Final Analysis / 05_COMPRESSION/TABLE_DIMENSION_EFFICIENCY.csv
+four_dataset,Nomic,NoiseProj-CF,128,0.549308109547301,0.3329299869496144,Final Analysis / 05_COMPRESSION/TABLE_DIMENSION_EFFICIENCY.csv
+six_dataset,Nomic,Native MRL,128,0.4471431572636146,0.2236139240825277,Final Analysis / 05_COMPRESSION/TABLE_NATIVE_MRL.csv
+six_dataset,Nomic,NoiseProj-CF,128,0.4499488057048524,0.274222852136697,Final Analysis / 05_COMPRESSION/TABLE_NATIVE_MRL.csv

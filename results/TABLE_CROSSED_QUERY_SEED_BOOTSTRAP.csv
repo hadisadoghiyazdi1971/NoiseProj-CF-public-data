@@ -1,16 +1,16 @@
-encoder,reference,delta_ndcg10,ci_low,ci_high,holm_p,corrected_significant
-MiniLM,Full,+0.005,-0.008,+0.023,0.660,No
-MiniLM,PCA-128,+0.033,+0.021,+0.047,<0.001,Yes
-MiniLM,SVD-128,+0.026,+0.012,+0.041,<0.001,Yes
-MiniLM,GaussianRP-128,+0.069,+0.043,+0.099,<0.001,Yes
-MiniLM,DAE-128,+0.030,+0.016,+0.048,<0.001,Yes
-E5,Full,-0.032,-0.069,+0.017,0.475,No
-E5,PCA-128,+0.036,-0.001,+0.093,0.268,No
-E5,SVD-128,+0.037,-0.006,+0.098,0.475,No
-E5,GaussianRP-128,+0.100,+0.037,+0.182,<0.001,Yes
-E5,DAE-128,+0.073,+0.036,+0.113,<0.001,Yes
-Nomic,Full,-0.015,-0.027,-0.003,0.067,No
-Nomic,PCA-128,+0.048,+0.022,+0.082,<0.001,Yes
-Nomic,SVD-128,+0.038,+0.013,+0.069,0.008,Yes
-Nomic,GaussianRP-128,+0.078,+0.050,+0.112,<0.001,Yes
-Nomic,DAE-128,+0.045,+0.026,+0.067,<0.001,Yes
+encoder,method,reference,datasets,bootstrap_samples,resampling_scheme,mean_difference,ci_low,ci_high,bootstrap_p_value,bootstrap_p_holm
+minilm_l6_v2,noiseproj_cf_128,full_native,6,10000,equal-dataset crossed query-seed bootstrap,0.0047347230328029,-0.0079746701335127,0.0225385517669511,0.6598,0.6598
+minilm_l6_v2,noiseproj_cf_128,pca_128,6,10000,equal-dataset crossed query-seed bootstrap,0.033408768901138,0.0210419288047607,0.0465403638238,0.0,0.0
+minilm_l6_v2,noiseproj_cf_128,svd_128,6,10000,equal-dataset crossed query-seed bootstrap,0.0260522848622785,0.0121989217937336,0.041461501462532,0.0,0.0
+minilm_l6_v2,noiseproj_cf_128,gaussian_rp_128,6,10000,equal-dataset crossed query-seed bootstrap,0.0694509833749266,0.0431416118523177,0.0990111340382836,0.0,0.0
+minilm_l6_v2,noiseproj_cf_128,dae_128,6,10000,equal-dataset crossed query-seed bootstrap,0.0299880109827991,0.0157403222571052,0.0480519298737513,0.0,0.0
+e5_base_v2,noiseproj_cf_128,full_native,6,10000,equal-dataset crossed query-seed bootstrap,-0.0315227635955633,-0.0690475895321135,0.0165831802325865,0.1728,0.4752
+e5_base_v2,noiseproj_cf_128,pca_128,6,10000,equal-dataset crossed query-seed bootstrap,0.0357835396969588,-0.0012915685141065,0.0925965310951646,0.067,0.268
+e5_base_v2,noiseproj_cf_128,svd_128,6,10000,equal-dataset crossed query-seed bootstrap,0.0367023385370441,-0.0058620218994053,0.0984726127098965,0.1584,0.4752
+e5_base_v2,noiseproj_cf_128,gaussian_rp_128,6,10000,equal-dataset crossed query-seed bootstrap,0.1001204729533446,0.0365475941084051,0.182323962105698,0.0,0.0
+e5_base_v2,noiseproj_cf_128,dae_128,6,10000,equal-dataset crossed query-seed bootstrap,0.0725176065766089,0.0357425438128374,0.1128309663474432,0.0,0.0
+nomic_embed_text_v1_5,noiseproj_cf_128,full_native,6,10000,equal-dataset crossed query-seed bootstrap,-0.0150907044448503,-0.0269254961672156,-0.0032829674748295,0.0134,0.067
+nomic_embed_text_v1_5,noiseproj_cf_128,pca_128,6,10000,equal-dataset crossed query-seed bootstrap,0.0481504965093826,0.0221922880277734,0.0819253786351036,0.0,0.0
+nomic_embed_text_v1_5,noiseproj_cf_128,svd_128,6,10000,equal-dataset crossed query-seed bootstrap,0.0383691741519541,0.0132107626427933,0.0687395917147312,0.0014,0.0084
+nomic_embed_text_v1_5,noiseproj_cf_128,gaussian_rp_128,6,10000,equal-dataset crossed query-seed bootstrap,0.0781005790414346,0.0495397003735575,0.112364537954552,0.0,0.0
+nomic_embed_text_v1_5,noiseproj_cf_128,dae_128,6,10000,equal-dataset crossed query-seed bootstrap,0.0453703525240427,0.0257317544808611,0.0671953597579504,0.0,0.0
