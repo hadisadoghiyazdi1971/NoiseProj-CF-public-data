@@ -19,15 +19,15 @@ made.
 Suggested attribution:
 
 > Taghaddosi, A. & Sadoghi Yazdi, H. (2026). *NoiseProj-CF: Public Results and Evidence Data*
-> [Data set]. Companion to a manuscript submitted to Data & Knowledge Engineering.
+> [Data set]. Companion to an unpublished manuscript prepared for submission to Information Sciences.
 > Licensed under CC BY 4.0.
 
 ## What this notice does not cover
 
 - **The manuscript text and figures.** They are not included in this repository and are not
-  licensed by this repository notice. The associated manuscript has been submitted to
-  *Data & Knowledge Engineering* and remains subject to the authors' and publisher's applicable
-  rights and agreements.
+  licensed by this repository notice. The associated unpublished manuscript is prepared for
+  submission to *Information Sciences* and remains subject to the authors' and publisher's
+  applicable rights and agreements.
 - **Third-party datasets and pretrained models.** The BEIR corpora and the pretrained encoders are
   not included here and remain under their respective licenses.
 

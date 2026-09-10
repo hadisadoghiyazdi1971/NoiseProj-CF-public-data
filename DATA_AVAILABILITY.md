@@ -1,53 +1,41 @@
 # Data availability
 
-## What is included in this repository
+## Included
 
-This repository is a **processed-results release** for the frozen scientific protocol
-`4.0.2-final`.
+This repository provides processed result tables for the frozen core protocol `4.0.2-final` and the targeted extension grid `information-sciences-new-experiments-v2`.
 
-The `results/` directory includes manuscript-facing result summaries and selected validated
-sensitivity/diagnostic outputs, including:
+The core tables cover main and secondary effectiveness, dataset-level results, dominance, dimensional efficiency, ranking stability, unseen corruption, observed OCR, cross-corpus transfer, system measurements, bootstrap inference, evaluation-seed sensitivity, calibration-seed stability, leave-one-dataset-out sensitivity, and query/document residual geometry.
 
-- main and secondary retrieval effectiveness;
-- per-dataset retrieval effectiveness;
-- 128-D dominance and compact-method win counts;
-- dimension-efficiency and native-MRL comparisons;
-- ranking-stability diagnostics;
-- unseen corruption and observed render/degrade/Tesseract OCR results;
-- cross-corpus transfer;
-- Quora/Nomic Flat/PQ/OPQ system measurements;
-- crossed query-seed bootstrap inference;
-- paired evaluation-seed sensitivity;
-- calibration fit-seed stability;
-- leave-one-dataset-out (LODO) sensitivity;
-- document-side versus query-side residual-covariance geometry.
+The extension tables cover:
 
-Exact per-file provenance is documented in
-[`metadata/README_RESULTS.md`](metadata/README_RESULTS.md).
+- recent-adaptor clean and noisy equal-dataset summaries;
+- dataset- and severity-level recent-adaptor results;
+- training-seed stability;
+- clean, query-only, document-only, and joint corruption-location results;
+- NoiseProj-CF comparisons with Full and PCA;
+- corruption retention, asymmetry, and joint-corruption interaction;
+- the extension completeness audit.
 
-`metadata/CLAIM_EVIDENCE_MATRIX.csv` maps manuscript claims to the public evidence tables that
-support them.
+Exact per-file provenance and interpretation constraints are documented in [`metadata/README_RESULTS.md`](metadata/README_RESULTS.md). The claim-to-evidence mapping is provided in [`metadata/CLAIM_EVIDENCE_MATRIX.csv`](metadata/CLAIM_EVIDENCE_MATRIX.csv).
 
-## Numerical precision
+## Not included
 
-The public CSVs are generated from the validated final analysis record rather than reconstructed
-from rounded PDF/LaTeX displays. Full precision is retained where available. Manuscript tables may
-show rounded values.
+- Raw BEIR corpora and qrels
+- Pretrained encoder weights
+- Raw per-query outputs and complete run directories
+- Source implementation and experiment notebooks
+- Manuscript or submission files
+- Third-party model or dataset licenses
 
-## What is not included
+These exclusions avoid redistributing third-party assets and prevent the public processed-results release from being mistaken for the complete private reproducibility archive.
 
-- **Raw BEIR corpora and qrels.** ArguAna, FiQA, NFCorpus, SciFact, SciDocs, and Quora are
-  third-party benchmark datasets distributed through BEIR and are not redistributed here.
-- **Pretrained encoder weights.** The models are third-party assets and remain under their own
-  licenses.
-- **Implementation, notebooks, raw per-query outputs, complete run artifacts, figures, and the
-  manuscript PDF.** These are not part of this public processed-results repository.
-- **Third-party model or dataset licenses.** This repository's CC BY 4.0 notice does not override
-  the licenses of external datasets or pretrained models.
+## Statistical interpretation
+
+The core crossed bootstrap resamples query IDs and evaluation-noise seeds within each dataset and resamples the six observed dataset contributions with equal weight. Its intervals quantify sensitivity within the observed benchmark panel and to its composition; they are not unrestricted population inference over all retrieval benchmarks.
+
+The new recent-adaptor and corruption-location comparisons are descriptive. Training-seed and evaluation-seed dispersion is released, but no new paired-query significance claim against NoiseProj-CF is made.
 
 ## Pinned encoder revisions
-
-The validated analysis record uses the following model revisions:
 
 | Encoder | Revision |
 |---|---|
@@ -57,12 +45,9 @@ The validated analysis record uses the following model revisions:
 
 ## Manuscript status
 
-The associated manuscript was submitted to *Data & Knowledge Engineering* on 14 August 2026.
-This repository does not infer external peer-review status from submission alone. The public
-record should be updated when the journal status or bibliographic information changes.
+The associated manuscript, **NoiseProj-CF: Noise-Adjusted Low-Rank Projection for Compact and Corruption-Robust Dense Retrieval**, is prepared for submission to *Information Sciences*. No acceptance, DOI, volume, issue, or page assignment is claimed.
 
 ## Corresponding author
 
-Hadi Sadoghi Yazdi — `h-sadoghi@um.ac.ir`
-Department of Computer Engineering, Faculty of Engineering, Ferdowsi University of Mashhad,
-Mashhad, Iran
+Hadi Sadoghi Yazdi - `h-sadoghi@um.ac.ir`
+Department of Computer Engineering, Faculty of Engineering, Ferdowsi University of Mashhad, Mashhad, Iran

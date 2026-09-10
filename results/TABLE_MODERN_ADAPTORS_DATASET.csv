@@ -1,0 +1,33 @@
+dataset,encoder,baseline,baseline_display,regime,ndcg10,mrr10,recall100,map100
+arguana,minilm_l6_v2,matryoshka_adaptor_unsupervised,Matryoshka-Adaptor (independent),clean,0.47092603684987505,0.3840245440709395,0.9726385914822746,0.39614478006316994
+arguana,minilm_l6_v2,matryoshka_adaptor_unsupervised,Matryoshka-Adaptor (independent),overall_noisy,0.23892776407022492,0.18614081400662413,0.7225791101594099,0.19925054701315167
+arguana,minilm_l6_v2,smec_qrel_free,SMEC-QF,clean,0.47845624619749993,0.3897581659358962,0.9695455626933143,0.4010129149301273
+arguana,minilm_l6_v2,smec_qrel_free,SMEC-QF,overall_noisy,0.2552043308290343,0.20001770592182197,0.7432944722023951,0.21309088219723307
+arguana,nomic_embed_text_v1_5,matryoshka_adaptor_unsupervised,Matryoshka-Adaptor (independent),clean,0.42638510927527856,0.33822590817594383,0.9616940280751844,0.35136638736813275
+arguana,nomic_embed_text_v1_5,matryoshka_adaptor_unsupervised,Matryoshka-Adaptor (independent),overall_noisy,0.3000480043389823,0.2339246532144462,0.8250852565627727,0.24794485047364495
+arguana,nomic_embed_text_v1_5,smec_qrel_free,SMEC-QF,clean,0.41554538633590116,0.3315936462617405,0.9495598382108019,0.3453263299026059
+arguana,nomic_embed_text_v1_5,smec_qrel_free,SMEC-QF,overall_noisy,0.2977938242902315,0.23202145230101448,0.8241097628677928,0.24598840947600814
+fiqa,minilm_l6_v2,matryoshka_adaptor_unsupervised,Matryoshka-Adaptor (independent),clean,0.31954954165029553,0.3835037804559409,0.6530278035293468,0.26648602534698135
+fiqa,minilm_l6_v2,matryoshka_adaptor_unsupervised,Matryoshka-Adaptor (independent),overall_noisy,0.11175140119107439,0.1340060789404925,0.3126880361769765,0.09086671787142617
+fiqa,minilm_l6_v2,smec_qrel_free,SMEC-QF,clean,0.3186121809681245,0.39158644424848127,0.6418459855188251,0.26504434266307003
+fiqa,minilm_l6_v2,smec_qrel_free,SMEC-QF,overall_noisy,0.11022194268112799,0.13653481339952528,0.3025855742432388,0.08946860451091344
+fiqa,nomic_embed_text_v1_5,matryoshka_adaptor_unsupervised,Matryoshka-Adaptor (independent),clean,0.32132093487448443,0.3904467960023516,0.6216764845237067,0.2681096714076214
+fiqa,nomic_embed_text_v1_5,matryoshka_adaptor_unsupervised,Matryoshka-Adaptor (independent),overall_noisy,0.11480844042150241,0.13913301271583162,0.28806769985653724,0.09353168742102048
+fiqa,nomic_embed_text_v1_5,smec_qrel_free,SMEC-QF,clean,0.3001945756960775,0.3730936458945718,0.5888656568054715,0.2477941243812598
+fiqa,nomic_embed_text_v1_5,smec_qrel_free,SMEC-QF,overall_noisy,0.10221166095261647,0.12667150450715262,0.2692567255465918,0.08271974705351123
+quora,minilm_l6_v2,matryoshka_adaptor_unsupervised,Matryoshka-Adaptor (independent),clean,0.8669660111848763,0.8596098544973544,0.9919733425605791,0.8340987399643846
+quora,minilm_l6_v2,matryoshka_adaptor_unsupervised,Matryoshka-Adaptor (independent),overall_noisy,0.3914484359783746,0.37619102116402114,0.603063062338356,0.36565142239974563
+quora,minilm_l6_v2,smec_qrel_free,SMEC-QF,clean,0.8654521858549945,0.8576591005291005,0.9921260593270077,0.8322427074361904
+quora,minilm_l6_v2,smec_qrel_free,SMEC-QF,overall_noisy,0.3964391300577822,0.38156315961199294,0.6082608764117261,0.37054896392068415
+quora,nomic_embed_text_v1_5,matryoshka_adaptor_unsupervised,Matryoshka-Adaptor (independent),clean,0.8148165209024777,0.803138544973545,0.9826825813843033,0.7769276537500648
+quora,nomic_embed_text_v1_5,matryoshka_adaptor_unsupervised,Matryoshka-Adaptor (independent),overall_noisy,0.3188122731301434,0.306219483686067,0.5111602236551905,0.29707096241599706
+quora,nomic_embed_text_v1_5,smec_qrel_free,SMEC-QF,clean,0.7825881395374382,0.7677365079365078,0.9741751085907439,0.742404307531063
+quora,nomic_embed_text_v1_5,smec_qrel_free,SMEC-QF,overall_noisy,0.29981326453363,0.28645490608465607,0.497131749437591,0.27803488695389056
+scifact,minilm_l6_v2,matryoshka_adaptor_unsupervised,Matryoshka-Adaptor (independent),clean,0.605993843630391,0.5624219576719577,0.8972222222222221,0.5589122255573569
+scifact,minilm_l6_v2,matryoshka_adaptor_unsupervised,Matryoshka-Adaptor (independent),overall_noisy,0.30676439346242174,0.27519879482657256,0.644054938271605,0.27637999322619977
+scifact,minilm_l6_v2,smec_qrel_free,SMEC-QF,clean,0.5821610721372769,0.5385850970017637,0.887888888888889,0.5380511620616119
+scifact,minilm_l6_v2,smec_qrel_free,SMEC-QF,overall_noisy,0.2879735823724375,0.25569235743680185,0.6253154320987655,0.2582077502554061
+scifact,nomic_embed_text_v1_5,matryoshka_adaptor_unsupervised,Matryoshka-Adaptor (independent),clean,0.6506654246783001,0.6178994708994708,0.9012962962962963,0.6084341348737836
+scifact,nomic_embed_text_v1_5,matryoshka_adaptor_unsupervised,Matryoshka-Adaptor (independent),overall_noisy,0.3583093383213942,0.3298695179306291,0.6697925925925926,0.32925581254895064
+scifact,nomic_embed_text_v1_5,smec_qrel_free,SMEC-QF,clean,0.6109411481965593,0.5784140211640212,0.879,0.5687939690560612
+scifact,nomic_embed_text_v1_5,smec_qrel_free,SMEC-QF,overall_noisy,0.33507424709097916,0.30987067901234566,0.6487709876543211,0.3083963089777159

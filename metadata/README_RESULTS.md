@@ -1,105 +1,53 @@
-# Results index — NoiseProj-CF
+# Results index - NoiseProj-CF
 
-The public CSVs in [`../results/`](../results/) are generated from the validated final analysis
-record for scientific protocol `4.0.2-final`, with concise manuscript-facing views used where a
-smaller table is easier to interpret.
+The public CSVs in [`../results/`](../results/) are exported from the validated core and extension analysis records. Values are not reconstructed from rounded PDF tables.
 
-The authoritative numerical direction is:
+All primary effectiveness values are NDCG@10 unless a column states otherwise.
 
-```text
-validated final analysis -> public CSV -> rounded manuscript display
-```
+## Core result tables
 
-The public release does not reconstruct values from rounded PDF tables. This avoids small apparent
-percentage discrepancies caused by rounding.
+The existing `TABLE_MAIN_*`, `TABLE_DATASET_*`, `TABLE_SECONDARY_*`, `TABLE_NOISEPROJ_*`, `TABLE_COMPACT_*`, `TABLE_DIMENSION_*`, `TABLE_NATIVE_*`, `TABLE_CLASSICAL_*`, `TABLE_RANKING_*`, `TABLE_REALIZED_*`, `TABLE_OBSERVED_*`, `TABLE_UNSEEN_*`, `TABLE_TRANSFER*`, `TABLE_SYSTEM_*`, `TABLE_FIT_*`, `TABLE_PAIRED_*`, `TABLE_CROSSED_*`, `TABLE_LODO_*`, and `TABLE_DOCUMENT_QUERY_*` files support the frozen core protocol `4.0.2-final`.
 
-All primary effectiveness values are NDCG@10 unless a column says otherwise.
+The confirmatory crossed bootstrap resamples queries and evaluation-noise seeds as crossed factors within each dataset. The six observed dataset-level contributions are then resampled with replacement and averaged with equal dataset weight. The uncertainty therefore reflects within-panel resampling and sensitivity to the composition of the observed benchmark panel, not unrestricted population inference over all possible retrieval tasks.
 
-## Main effectiveness and dataset tables
+## Recent-adaptor extension
 
-| CSV | Provenance / meaning |
+| CSV | Meaning |
 |---|---|
-| `TABLE_MAIN_clean_vs_mean_noisy.csv` | Full-precision clean and equal-dataset mean-noisy NDCG@10 from `01_MAIN/TABLE_MAIN_clean_vs_mean_noisy.csv`, presented as a concise long table. |
-| `TABLE_SECONDARY_METRICS.csv` | Full-precision Recall@100, MRR@10, and MAP@100 clean/noisy summaries from `01_MAIN/TABLE_SECONDARY_METRICS.csv`. |
-| `TABLE_DATASET_METADATA.csv` | Dataset/document/query/fit-document metadata corresponding to the submitted manuscript dataset table. |
-| `TABLE_DATASET_LEVEL.csv` | Full per-dataset, per-encoder, per-method clean/noisy effectiveness from `01_MAIN/TABLE_DATASET_LEVEL.csv`. |
+| `TABLE_MODERN_ADAPTORS_MACRO.csv` | Equal-dataset clean and overall-noisy metrics for each encoder and baseline. |
+| `TABLE_MODERN_ADAPTORS_DATASET.csv` | Dataset-level clean and noisy metrics. |
+| `TABLE_MODERN_ADAPTORS_SEVERITY.csv` | Equal-dataset results by corruption family and severity. |
+| `TABLE_MODERN_ADAPTORS_SEED_STABILITY.csv` | Mean, SD, range, and extrema across three training seeds. |
 
-## Robustness and heterogeneity
+The panel covers ArguAna, FiQA, SciFact, and Quora with MiniLM and Nomic at 128 dimensions. `Matryoshka-Adaptor (independent)` is an independent unsupervised implementation. `SMEC-QF` is a qrel-free SMEC-inspired adaptation that excludes the published relevance-based rank loss. Neither result is an official author-code reproduction. The public tables support descriptive mean comparisons only.
 
-| CSV | Provenance / meaning |
+## Corruption-location extension
+
+| CSV | Meaning |
 |---|---|
-| `TABLE_NOISEPROJ_DOMINANCE.csv` | Full 108-cell pairwise NoiseProj-CF dominance statistics from `02_ROBUSTNESS/TABLE_NOISEPROJ_DOMINANCE.csv`. |
-| `TABLE_COMPACT_WIN_COUNTS.csv` | Which compact method wins each 108-cell comparison, aggregated from `02_ROBUSTNESS/TABLE_COMPACT_WIN_COUNTS.csv`. This is distinct from pairwise dominance. |
-| `TABLE_LODO_DELTAS.csv` | Leave-one-dataset-out sensitivity from `03_HETEROGENEITY/TABLE_LODO_DELTAS.csv`. |
-| `TABLE_RANKING_STABILITY_MACRO.csv` | Six-condition macro average derived from the 108-row final-analysis ranking-stability table in `04_STABILITY/TABLE_RANKING_STABILITY_MACRO.csv`. |
-| `TABLE_REALIZED_CORRUPTION.csv` | Full-precision concise view combining synthetic corruption statistics from `04_STABILITY/TABLE_REALIZED_CORRUPTION.csv` with observed OCR statistics from `06_GENERALIZATION/TABLE_OBSERVED_OCR_NOISE_STATS.csv`. |
+| `TABLE_CORRUPTION_LOCATION_MACRO.csv` | Equal-dataset clean and scenario-specific metrics by method and corruption family. |
+| `TABLE_CORRUPTION_LOCATION_CELLS.csv` | Dataset/family/scenario cells and NoiseProj-CF deltas versus Full and PCA. |
+| `TABLE_CORRUPTION_LOCATION_RETENTION.csv` | Seed-aggregated absolute clean drops and retention fractions. |
+| `TABLE_CORRUPTION_LOCATION_WIN_LOSS.csv` | Descriptive NoiseProj-CF win/tie/loss counts versus Full and PCA. |
+| `TABLE_CORRUPTION_LOCATION_INTERACTION.csv` | Equal-dataset query/document asymmetry and joint-corruption interaction. |
 
-## Compression and dimension studies
+The panel covers ArguAna, NFCorpus, and SciFact with Nomic at severity 0.15 under five evaluation-noise seeds. The four scenarios are clean, query-only, document-only, and joint query/document corruption. Positive joint-interaction values indicate subadditive degradation on the NDCG scale and should not be interpreted causally.
 
-| CSV | Provenance / meaning |
-|---|---|
-| `TABLE_CLASSICAL_BASELINES.csv` | Full-precision MiniLM four-dataset comparison combining the Full/NoiseProj rows from the dimension analysis with the additional classical baselines in `05_COMPRESSION/TABLE_CLASSICAL_BASELINES.csv`. |
-| `TABLE_DIMENSION_EFFICIENCY.csv` | Direct final-analysis dimension table from `05_COMPRESSION/TABLE_DIMENSION_EFFICIENCY.csv`, including clean/noisy retention and storage reduction. |
-| `TABLE_DIMENSION_PARETO.csv` | Direct final-analysis dimension table with the final-analysis Pareto flag from `05_COMPRESSION/TABLE_DIMENSION_PARETO.csv`. |
-| `TABLE_NATIVE_MRL.csv` | Full-precision Nomic 128-D Native-MRL versus NoiseProj-CF comparison for both the four-dataset dimension panel and the six-dataset main panel. The six-dataset clean values are Native MRL `0.447143...` and NoiseProj-CF `0.449949...`. |
+## Extension audit
 
-## Generalization and diagnostics
+[`EXTENSION_AUDIT.json`](EXTENSION_AUDIT.json) records:
 
-| CSV | Provenance / meaning |
-|---|---|
-| `TABLE_OBSERVED_OCR.csv` | Full-precision clean versus observed render/degrade/Tesseract OCR NDCG@10 for Full, PCA-128, and NoiseProj-CF-128, derived from `06_GENERALIZATION/TABLE_OBSERVED_OCR.csv`. |
-| `TABLE_UNSEEN_GENERALIZATION.csv` | Full-precision four-generator unseen-corruption comparison derived from `06_GENERALIZATION/TABLE_UNSEEN_GENERALIZATION.csv`. |
-| `TABLE_DOCUMENT_QUERY_NOISE_GEOMETRY.csv` | Direct diagnostic from `07_DIAGNOSTICS/TABLE_DOCUMENT_QUERY_NOISE_GEOMETRY.csv`; it measures document/query residual-covariance differences and should not be interpreted as evidence that the two nuisance operators are equal. |
-| `TABLE_FIT_SEED_STABILITY.csv` | Direct calibration-seed stability summary from `07_DIAGNOSTICS/TABLE_FIT_SEED_STABILITY.csv`. |
-| `TABLE_PAIRED_SEED_SENSITIVITY.csv` | Direct paired evaluation-seed sensitivity table from `10_STATISTICS/TABLE_PAIRED_SEED_SENSITIVITY.csv`. This is different from calibration fit-seed stability. |
+- 1488 modern-adaptor result rows;
+- 48/48 unique modern-adaptor execution units;
+- 360 corruption-location result rows;
+- 30/30 unique corruption-location execution units;
+- no missing, extra, duplicate, or malformed protocol cells.
 
-## Transfer and system results
+## Interpretation guards
 
-| CSV | Provenance / meaning |
-|---|---|
-| `TABLE_TRANSFER.csv` | Full-precision best-foreign-source noisy-transfer summary from `08_TRANSFER/TABLE_BEST_FOREIGN_SOURCE.csv`. |
-| `TABLE_TRANSFER_REGRET.csv` | Derived non-negative regret view of `TABLE_TRANSFER.csv`: `max(0, -delta)`. |
-| `TABLE_SYSTEM_FULL.csv` | Full-precision concise view of the 12 Quora/Nomic Flat/PQ/OPQ measurements in `09_SYSTEM/TABLE_SYSTEM_FULL.csv`. |
-| `TABLE_SYSTEM_FLAT.csv` | Flat-index-only comparison used for the main storage/throughput/quality discussion. |
-
-## Statistical inference
-
-| CSV | Provenance / meaning |
-|---|---|
-| `TABLE_CROSSED_QUERY_SEED_BOOTSTRAP.csv` | Direct 10,000-replicate equal-dataset crossed query-seed bootstrap output from `10_STATISTICS/TABLE_CROSSED_QUERY_SEED_BOOTSTRAP.csv`, including raw and Holm-adjusted bootstrap p-values. |
-| `TABLE_PAIRED_SEED_SENSITIVITY.csv` | Five paired evaluation-seed sensitivity analysis. It is supplementary to, not a replacement for, the crossed query-seed bootstrap. |
-
-## Important statistical interpretation
-
-The confirmatory crossed bootstrap resamples queries and evaluation-noise seeds as crossed factors
-within each dataset and combines the six datasets with equal weight. The six datasets themselves
-are not resampled. Therefore its intervals are conditional on the selected benchmark panel.
-
-`TABLE_LODO_DELTAS.csv` is a dataset-composition sensitivity check. It should not be described as
-population-level inference over a random sample of retrieval datasets.
-
-## Document/query nuisance geometry
-
-`TABLE_DOCUMENT_QUERY_NOISE_GEOMETRY.csv` shows that document-side and query-side corruption
-residual geometry is measurably different. For the Nomic diagnostic at severity 0.15, the mean
-principal angles are about 27.6 degrees for typo corruption and 28.9 degrees for OCR-like
-corruption, with normalized covariance distances about 0.664 and 0.691, respectively.
-
-Accordingly, the public evidence should not be summarized as showing document/query covariance
-equivalence. The operational question is whether the document-calibrated map suppresses query-side
-perturbations sufficiently for robust retrieval.
-
-## Protocol reference
-
-Frozen protocol: `4.0.2-final`.
-
-Pinned model revisions:
-
-- all-MiniLM-L6-v2: `1110a243fdf4706b3f48f1d95db1a4f5529b4d41`
-- E5-base-v2: `f52bf8ec8c7124536f0efb74aca902b2995e5bcd`
-- nomic-embed-text-v1.5: `e9b6763023c676ca8431644204f50c2b100d9aab`
-
-Datasets: ArguAna, FiQA, NFCorpus, SciFact, SciDocs, and Quora.
-
-Calibration is document-only and qrel-free. Evaluation queries and qrels are not used to fit the
-projection.
+- No qrel, relevance label, evaluation query, or retrieval metric is used to fit NoiseProj-CF or either qrel-free extension baseline.
+- Recent-adaptor SD values describe variation across training seeds.
+- Corruption-location SD values describe variation across evaluation-noise seeds.
+- Equal-dataset macros give each dataset equal weight.
+- The extension does not provide a new paired-query significance test against NoiseProj-CF.
+- Full remains an uncompressed reference and is stronger in several absolute comparisons.

@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "mode": "FINAL",
+  "modern_rows": 1488,
+  "modern_unique_units": 48,
+  "expected_modern_units": 48,
+  "location_rows": 360,
+  "location_unique_units": 30,
+  "expected_location_units": 30,
+  "problems": [],
+  "modern_condition_errors": [],
+  "location_grid_errors": []
+}

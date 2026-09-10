@@ -1,19 +1,15 @@
 cff-version: 1.2.0
 message: >-
-  The manuscript associated with this results package was submitted to
-  Data & Knowledge Engineering on 2026-08-14 and has not yet been accepted
-  or assigned a DOI. Until publication, please cite this dataset directly
-  or contact the corresponding author for guidance.
+  This repository accompanies an unpublished manuscript prepared for submission
+  to Information Sciences. Until publication, cite this dataset or contact the
+  corresponding author for guidance.
 type: dataset
 title: "NoiseProj-CF: Public Results and Evidence Data"
 abstract: >-
   Processed result tables supporting the manuscript "NoiseProj-CF:
-  Noise-Adjusted Low-Rank Indexing for Compact and Corruption-Robust Dense
-  Retrieval". The release covers six BEIR datasets and three frozen
-  sentence-embedding encoders under the qrel-free, document-calibrated
-  protocol 4.0.2-final, including effectiveness, compression, corruption
-  generalization, transfer, system trade-offs, sensitivity diagnostics,
-  and statistical inference.
+  Noise-Adjusted Low-Rank Projection for Compact and Corruption-Robust Dense
+  Retrieval". The release covers the frozen six-dataset, three-encoder core
+  protocol and targeted recent-adaptor and corruption-location extensions.
 authors:
   - given-names: Amirreza
     family-names: Taghaddosi
@@ -24,25 +20,24 @@ authors:
     email: h-sadoghi@um.ac.ir
 keywords:
   - dense retrieval
-  - vector indexing
   - robust embeddings
   - dimensionality reduction
-  - noisy queries
-  - product quantization
-  - noise-adjusted principal components
+  - text corruption
+  - vector indexing
+  - noise-adjusted subspaces
 license: CC-BY-4.0
-date-released: "2026-08-14"
+date-released: "2026-09-10"
 url: "https://github.com/hadisadoghiyazdi1971/NoiseProj-CF-public-data"
 preferred-citation:
   type: article
-  title: "NoiseProj-CF: Noise-Adjusted Low-Rank Indexing for Compact and Corruption-Robust Dense Retrieval"
+  title: "NoiseProj-CF: Noise-Adjusted Low-Rank Projection for Compact and Corruption-Robust Dense Retrieval"
   authors:
     - given-names: Amirreza
       family-names: Taghaddosi
     - given-names: Hadi
       family-names: "Sadoghi Yazdi"
       email: h-sadoghi@um.ac.ir
-  journal: "Data & Knowledge Engineering"
-  status: "submitted"
+  journal: "Information Sciences"
+  status: "manuscript prepared for submission"
   year: 2026
-  notes: "Submitted on 2026-08-14; not yet accepted or assigned a DOI."
+  notes: "Unpublished manuscript; no DOI has been assigned."

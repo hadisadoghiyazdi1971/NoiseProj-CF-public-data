@@ -1,0 +1,9 @@
+scenario,reference,cells,mean_delta,wins,ties,losses
+clean,Full,6,-0.03153409068988757,0,0,6
+clean,PCA-128,6,0.010961686639275603,4,0,2
+queries_only,Full,6,-0.01411248093458683,2,0,4
+queries_only,PCA-128,6,0.04036401251661706,6,0,0
+documents_only,Full,6,-0.009084581400077998,1,0,5
+documents_only,PCA-128,6,0.022464003547548638,6,0,0
+queries_and_documents,Full,6,-0.01037667370003927,2,0,4
+queries_and_documents,PCA-128,6,0.021791999294065546,5,0,1
